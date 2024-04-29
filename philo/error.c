@@ -3,19 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:24:39 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/30 03:25:21 by pc               ###   ########.fr       */
+/*   Updated: 2024/04/29 02:18:33 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	is_error(void)
+int	is_error(void)
 {
-	printf("Error in arg\n");
-	printf("--->your input most be positive and ofcourse most be number (number!!!!!!)\n");
-	printf("--->and you can put 4 or 5 arg not more or less then\n");
-	exit(0);
+	printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+	printf("┃          Please enter 4 or 5 arguments       ┃\n");
+	printf("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫\n");
+	printf("┃  [1]Number of philosophers                   ┃\n");
+	printf("┃  [2]Time to die                              ┃\n");
+	printf("┃  [3]Time to eat                              ┃\n");
+	printf("┃  [4]Time to sleep                            ┃\n");
+	printf("┃  [5]Number of meals                          ┃\n");
+	printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");	return (0);
 }

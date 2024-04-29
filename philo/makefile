@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pc <pc@student.42.fr>                      +#+  +:+       +#+         #
+#    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 23:47:23 by pc                #+#    #+#              #
-#    Updated: 2024/03/30 03:23:51 by pc               ###   ########.fr        #
+#    Updated: 2024/04/29 02:25:30 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,15 +26,21 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-		@echo "MAKE IS COMPLETE"
+	@echo "┏━━━━━━━━━━━━━━━━━━━━━━┓"
+	@echo "┃      Building...     ┃"
+	@echo "┗━━━━━━━━━━━━━━━━━━━━━━┛"
 
 clean:
 	$(RM) $(OBJ)
-	@echo "OBJ IS REMOVED"
+	@echo "┏━━━━━━━━━━━━━━━━━━━━━━┓"
+	@echo "┃      Cleaning...     ┃"
+	@echo "┗━━━━━━━━━━━━━━━━━━━━━━┛"
 
 fclean: clean
 	$(RM) $(NAME)
-	@echo "IT'S ALL CLEAN"
+	@echo "┏━━━━━━━━━━━━━━━━━━━━━━┓"
+	@echo "┃      Full clean...   ┃"
+	@echo "┗━━━━━━━━━━━━━━━━━━━━━━┛"
 
 re: fclean all
 

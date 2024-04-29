@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 23:46:52 by pc                #+#    #+#             */
-/*   Updated: 2024/03/28 16:49:06 by pc               ###   ########.fr       */
+/*   Updated: 2024/04/29 02:10:13 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int main(int argc, char **argv)
     if (argc == 5 || argc == 6)
     {
         if (check_arg(argc, argv) == 0)
-            is_error();
+            return (is_error());
         ft_initialize(argc ,argv, &info);
     }
     else
-        is_error();
+        return (is_error());
 }
