@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 00:04:36 by pc                #+#    #+#             */
-/*   Updated: 2024/04/29 02:12:41 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/01 00:10:09 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,23 @@
 # include <pthread.h>
 
 //struct
-typedef struct s_info
+typedef struct s_philo
 {
+    pthread_t thread;
+    int id;
     int philo_num;
+    int last_eat;
     int death_time;
     int eat_time;
     int sleep_time;
     int must_eat;
-}   t_info;
+
+
+    //mutex
+    pthread_mutex_t *r_fork;
+    pthread_mutex_t *l_fork;
+    
+}   t_philo;
 
 //functions
 int	ft_isdigit(int c);
