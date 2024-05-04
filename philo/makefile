@@ -6,7 +6,7 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 23:47:23 by pc                #+#    #+#              #
-#    Updated: 2024/04/29 02:44:05 by amousaid         ###   ########.fr        #
+#    Updated: 2024/05/03 10:28:30 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ SRC = philo.c\
 		checker.c\
 		error.c\
 		ft_atoi.c\
+		born.c\
+		time.c\
 
 OBJ = $(SRC:.c=.o)
 
