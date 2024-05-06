@@ -6,13 +6,13 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 23:47:23 by pc                #+#    #+#              #
-#    Updated: 2024/05/03 10:28:30 by amousaid         ###   ########.fr        #
+#    Updated: 2024/05/06 11:49:15 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -g -Wall -Werror -Wextra
 RM =rm -rf
 SRC = philo.c\
 		ft_isdigit.c\
@@ -21,6 +21,7 @@ SRC = philo.c\
 		ft_atoi.c\
 		born.c\
 		time.c\
+		life.c\
 
 OBJ = $(SRC:.c=.o)
 
