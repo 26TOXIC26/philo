@@ -6,7 +6,7 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 23:47:23 by pc                #+#    #+#              #
-#    Updated: 2024/05/06 11:49:15 by amousaid         ###   ########.fr        #
+#    Updated: 2024/05/07 15:10:29 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC = philo.c\
 		born.c\
 		time.c\
 		life.c\
+		print.c\
 
 OBJ = $(SRC:.c=.o)
 

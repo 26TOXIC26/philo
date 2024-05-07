@@ -6,13 +6,13 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 01:02:51 by amousaid          #+#    #+#             */
-/*   Updated: 2024/05/06 18:18:42 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:06:40 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void    philo_data(t_info info, t_philo *threads, pthread_mutex_t *forks)
+void    philo_data(t_info info, t_philo *threads, pthread_mutex_t *forks, pthread_mutex_t print)
 {
     int i;
 
@@ -25,6 +25,7 @@ void    philo_data(t_info info, t_philo *threads, pthread_mutex_t *forks)
         threads[i].info = &info;
         threads[i].eat_count = 0;
         threads[i].l_fork = &forks[i];
+        threads[i].print = print;
         if (i == 0)
             threads[i].r_fork = &forks[info.philo_num - 1];
         else

@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 11:02:22 by amousaid          #+#    #+#             */
-/*   Updated: 2024/05/06 20:36:04 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:09:59 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int eating(t_philo *philo)
 {
     pthread_mutex_lock(philo->r_fork);
-    printf("philo %d has taken a fork\n", philo->id);
+    print(philo, "has taken a fork");
     if (philo->info->philo_num == 1)
     {
         usleep(philo->info->death_time * 1000);
@@ -23,8 +23,8 @@ int eating(t_philo *philo)
         return (0);
     }
     pthread_mutex_lock(philo->l_fork);
-    printf("philo %d has taken a fork\n", philo->id);
-    printf("philo %d is eating\n", philo->id);
+    print(philo, "has taken a fork");
+    print(philo, "is eating");
     philo->last_eat = get_time();
     usleep(philo->info->eat_time * 1000);
     philo->eat_count++;
@@ -35,13 +35,20 @@ int eating(t_philo *philo)
 
 void sleeping(t_philo *philo)
 {
-    printf("philo %d is sleeping\n", philo->id);
+    print(philo, "is sleeping");
     usleep(philo->info->sleep_time * 1000);
 }
 
 void thinking(t_philo *philo)
 {
-    printf("philo %d is thinking\n", philo->id);
+    print(philo, "is thinking");
+}
+
+int dead_philo(t_philo *philo)
+{
+    if (philo->dead != 0 || philo->eat_count >= philo->info->must_eat)
+        return (0);
+    return (1);
 }
 
 void *philo_life(void *ptr)
@@ -50,12 +57,11 @@ void *philo_life(void *ptr)
 
     philo = (t_philo *)ptr;
     if (philo->id % 2 == 0)
-        usleep(1);
-    while (1)
+        usleep(1000);
+    while (dead_philo(philo))
     {
         if (eating(philo) == 0)
             return ((void *)0);
-        eating(philo);
 		sleeping(philo);
 	    thinking(philo);
     }
