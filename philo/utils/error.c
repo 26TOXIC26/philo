@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:24:39 by amousaid          #+#    #+#             */
-/*   Updated: 2024/05/09 10:17:38 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:41:26 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,20 @@ int	is_error(void)
 	printf("┃  [5]Number of meals                          ┃\n");
 	printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
 	return (0);
+}
+
+void destroy_kolchi(pthread_mutex_t *forks, t_philo *philos)
+{
+	int i;
+
+	i = 0;
+	pthread_mutex_destroy(&philos[i].mutex->print_mutex);
+	pthread_mutex_destroy(&philos[i].mutex->dead_mutex);
+	pthread_mutex_destroy(&philos[i].mutex->eat_mutex);
+	while (i < philos->info->philo_num)
+	{
+		pthread_mutex_destroy(&forks[i]);
+		i++;
+	}
+	i = 0;
 }

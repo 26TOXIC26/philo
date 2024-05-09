@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 00:04:36 by pc                #+#    #+#             */
-/*   Updated: 2024/05/09 18:00:29 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:31:46 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 
 // struct
 
+typedef struct s_mutex
+{
+	pthread_mutex_t	dead_mutex;
+	pthread_mutex_t	print_mutex;
+	pthread_mutex_t eat_mutex;
+
+}					t_mutex;
 typedef struct s_info
 {
 	int				philo_num;
@@ -44,7 +51,7 @@ typedef struct s_philo
 	// mutex
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
-	pthread_mutex_t	print;
+	t_mutex			*mutex;
 
 }					t_philo;
 
@@ -55,13 +62,14 @@ int					ft_atoi(const char *str);
 int					is_error(void);
 size_t				get_time(void);
 void				philo_data(t_info *info, t_philo *threads,
-						pthread_mutex_t *forks, pthread_mutex_t print);
+						pthread_mutex_t *forks, t_mutex *mutex);
 void				ft_born_philo(t_info info, t_philo *threads);
 void				*philo_life(void *ptr);
 void				init_forks(t_info info, pthread_mutex_t *forks);
 void				print(t_philo *philo, char *str);
 int					ft_usleep(size_t milliseconds);
 int					done_eating(t_philo *philo);
+void destroy_kolchi(pthread_mutex_t *forks, t_philo *philos);
 
 // colors
 # define RESET "\e[0m"

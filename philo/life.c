@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 11:02:22 by amousaid          #+#    #+#             */
-/*   Updated: 2024/05/09 18:01:29 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/09 21:42:05 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@ int	eating(t_philo *philo)
 	if (pthread_mutex_lock(philo->l_fork) != 0)
 	{
 		pthread_mutex_unlock(philo->r_fork);
-		return (0);
+		return (1);
 	}
 	print(philo, BLUE "🍴 has taken a fork 🍴" RESET);
 	print(philo, GREEN "🍝 is eating 🍝" RESET);
 	philo->is_eating = 1;
+	pthread_mutex_lock(&philo->mutex->eat_mutex);
 	philo->last_eat = get_time();
-	ft_usleep(philo->info->eat_time);
 	philo->eat_count++;
+	pthread_mutex_unlock(&philo->mutex->eat_mutex);
+	ft_usleep(philo->info->eat_time);
 	pthread_mutex_unlock(philo->r_fork);
 	pthread_mutex_unlock(philo->l_fork);
 	return (1);
@@ -52,8 +54,10 @@ void	thinking(t_philo *philo)
 
 int	dead_philo(t_philo *philo)
 {
+	pthread_mutex_lock(&philo->mutex->dead_mutex);
 	if (philo->dead > 0 || philo->eat_count == philo->info->must_eat)
-		return (0);
+		return (pthread_mutex_unlock(&philo->mutex->dead_mutex) ,0);
+	pthread_mutex_unlock(&philo->mutex->dead_mutex);
 	return (1);
 }
 
@@ -67,7 +71,7 @@ void	*philo_life(void *ptr)
 	while (dead_philo(philo))
 	{
 		if (eating(philo) == 0)
-			return ((void *)0);
+			return (NULL);
 		sleeping(philo);
 		thinking(philo);
 	}

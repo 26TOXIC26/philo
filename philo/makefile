@@ -6,13 +6,13 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 23:47:23 by pc                #+#    #+#              #
-#    Updated: 2024/05/09 18:12:20 by amousaid         ###   ########.fr        #
+#    Updated: 2024/05/09 21:13:52 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=thread -g
+CFLAGS = -Wall -Werror -Wextra
 RM =rm -rf
 SRC = philo.c\
 		life.c\
