@@ -22,5 +22,6 @@ int	is_error(void)
 	printf("┃  [3]Time to eat                              ┃\n");
 	printf("┃  [4]Time to sleep                            ┃\n");
 	printf("┃  [5]Number of meals                          ┃\n");
-	printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");	return (0);
+	printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+	return (0);
 }

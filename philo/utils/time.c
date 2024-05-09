@@ -6,18 +6,18 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 10:23:35 by amousaid          #+#    #+#             */
-/*   Updated: 2024/05/09 14:50:49 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:03:40 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-size_t get_time()
+size_t	get_time(void)
 {
-    struct timeval tv;
-    
-    gettimeofday(&tv, NULL);
-    return((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
 int	ft_usleep(size_t milliseconds)

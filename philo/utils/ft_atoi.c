@@ -27,7 +27,7 @@ int	ft_atoi(const char *str)
 	{
 		result = result * 10 + (str[i++] - '0');
 		if (result > 2147483647)
-			return(-1);
+			return (-1);
 	}
 	return (result);
 }
