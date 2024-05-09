@@ -6,11 +6,11 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 10:07:31 by pc                #+#    #+#             */
-/*   Updated: 2024/05/01 00:28:21 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/09 10:17:32 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 int ft_check_num(char **argv)
 {

@@ -6,23 +6,23 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 23:47:23 by pc                #+#    #+#              #
-#    Updated: 2024/05/07 15:10:29 by amousaid         ###   ########.fr        #
+#    Updated: 2024/05/09 12:46:58 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = cc
-CFLAGS = -g -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 RM =rm -rf
 SRC = philo.c\
-		ft_isdigit.c\
-		checker.c\
-		error.c\
-		ft_atoi.c\
-		born.c\
-		time.c\
 		life.c\
-		print.c\
+		born.c\
+		./utils/ft_isdigit.c\
+		./utils/checker.c\
+		./utils/error.c\
+		./utils/ft_atoi.c\
+		./utils/print.c\
+		./utils/time.c\
 
 OBJ = $(SRC:.c=.o)
 

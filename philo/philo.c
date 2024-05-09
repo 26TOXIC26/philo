@@ -6,29 +6,11 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 23:46:52 by pc                #+#    #+#             */
-/*   Updated: 2024/05/07 15:06:04 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:48:16 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-int check_count(t_philo *threads, t_info info)
-{
-    int i;
-    int count;
-
-    i = 0;
-    count = 0;
-    while (i < info.philo_num)
-    {
-        if (threads[i].eat_count == info.must_eat)
-            count++;
-        i++;
-    }
-    if (count == info.philo_num)
-        return (0);
-    return (1);
-}
 
 void ft_initialize(int argc, char **argv, t_info *info)
 {
@@ -38,6 +20,8 @@ void ft_initialize(int argc, char **argv, t_info *info)
     info->sleep_time = ft_atoi(argv[4]);
     if (argc == 6)
         info->must_eat = ft_atoi(argv[5]);
+    else
+        info->must_eat = -1;
 }
 
 int main(int argc, char **argv)
@@ -54,10 +38,8 @@ int main(int argc, char **argv)
         ft_initialize(argc ,argv, &info);
         init_forks(info, forks);
         pthread_mutex_init(&print, NULL);
-        philo_data(info, threads, forks, print);
+        philo_data(&info, threads, forks, print);
         ft_born_philo(info, threads);
-        if (check_count(threads, info) == 0)
-            return (0);       
     }
     else
         return (is_error());

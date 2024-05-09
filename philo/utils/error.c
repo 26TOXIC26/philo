@@ -6,11 +6,11 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:24:39 by amousaid          #+#    #+#             */
-/*   Updated: 2024/04/29 02:18:33 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/09 10:17:38 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
 int	is_error(void)
 {

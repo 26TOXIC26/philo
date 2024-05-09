@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:58:18 by amousaid          #+#    #+#             */
-/*   Updated: 2024/04/30 23:24:58 by amousaid         ###   ########.fr       */
+/*   Created: 2024/05/03 10:23:35 by amousaid          #+#    #+#             */
+/*   Updated: 2024/05/09 14:50:49 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../philo.h"
 
-int	ft_atoi(const char *str)
+size_t get_time()
 {
-	size_t	result;
-	int		i;
+    struct timeval tv;
+    
+    gettimeofday(&tv, NULL);
+    return((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+}
 
-	result = 0;
-	i = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i++] - '0');
-		if (result > 2147483647)
-			return(-1);
-	}
-	return (result);
+int	ft_usleep(size_t milliseconds)
+{
+	size_t	start;
+
+	start = get_time();
+	while ((get_time() - start) < milliseconds)
+		usleep(100);
+	return (0);
 }
