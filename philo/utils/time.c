@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 10:23:35 by amousaid          #+#    #+#             */
-/*   Updated: 2024/05/09 18:03:40 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:57:51 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	get_time(void)
 int	ft_usleep(size_t milliseconds)
 {
 	size_t	start;
-
+	
 	start = get_time();
 	while ((get_time() - start) < milliseconds)
 		usleep(100);

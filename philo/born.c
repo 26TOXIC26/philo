@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 01:02:51 by amousaid          #+#    #+#             */
-/*   Updated: 2024/05/09 20:32:44 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:13:51 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,14 @@ int	done_eating(t_philo *philo)
 	int	i;
 
 	i = 0;
+	pthread_mutex_lock(&philo[0].mutex->eat_mutex);
 	while (i < philo->info->philo_num)
 	{
 		if (philo[i].eat_count != philo[i].info->must_eat)
-			return (0);
+			return (pthread_mutex_unlock(&philo[0].mutex->eat_mutex), 0);
 		i++;
 	}
+	pthread_mutex_unlock(&philo[0].mutex->eat_mutex);
 	return (1);
 }
 
@@ -75,18 +77,23 @@ void	*main_check(void *threds)
 		i = -1;
 		while (++i < philo->info->philo_num)
 		{
+			pthread_mutex_lock(&philo[i].mutex->eat_mutex);
 			if (get_time() - philo[i].last_eat > philo[i].info->death_time
 				&& philo[i].is_eating == 0
 				&& philo[i].eat_count != philo[i].info->must_eat)
 			{
+				pthread_mutex_unlock(&philo[i].mutex->eat_mutex);
 				print(&philo[i], RED "🪦 died🪦" RESET);
 				i = 0;
 				while (i < philo->info->philo_num)
 				{
-					philo[i++].dead = 1;
+					pthread_mutex_lock(&philo[i].mutex->dead_mutex);
+					philo[i].dead = 1;
+					pthread_mutex_unlock(&philo[i++].mutex->dead_mutex);
 				}
 				return (NULL);
 			}
+			pthread_mutex_unlock(&philo[i].mutex->eat_mutex);
 		}
 	}
 	return (threds);

@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 00:04:36 by pc                #+#    #+#             */
-/*   Updated: 2024/05/09 20:31:46 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:08:37 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_mutex
 	pthread_mutex_t	dead_mutex;
 	pthread_mutex_t	print_mutex;
 	pthread_mutex_t eat_mutex;
-
 }					t_mutex;
 typedef struct s_info
 {

@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 11:02:22 by amousaid          #+#    #+#             */
-/*   Updated: 2024/05/09 21:42:05 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/10 18:33:07 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 
 int	eating(t_philo *philo)
 {
-	pthread_mutex_lock(philo->r_fork);
+	pthread_mutex_lock(philo->l_fork);
 	print(philo, BLUE "🍴 has taken a fork 🍴" RESET);
 	if (philo->info->philo_num == 1)
 	{
 		ft_usleep(philo->info->death_time);
-		pthread_mutex_unlock(philo->r_fork);
+		pthread_mutex_unlock(philo->l_fork);
 		return (0);
 	}
-	if (pthread_mutex_lock(philo->l_fork) != 0)
-	{
-		pthread_mutex_unlock(philo->r_fork);
-		return (1);
-	}
+	pthread_mutex_lock(philo->r_fork);
 	print(philo, BLUE "🍴 has taken a fork 🍴" RESET);
 	print(philo, GREEN "🍝 is eating 🍝" RESET);
 	philo->is_eating = 1;
@@ -35,14 +31,14 @@ int	eating(t_philo *philo)
 	philo->eat_count++;
 	pthread_mutex_unlock(&philo->mutex->eat_mutex);
 	ft_usleep(philo->info->eat_time);
-	pthread_mutex_unlock(philo->r_fork);
+	philo->is_eating = 0;
 	pthread_mutex_unlock(philo->l_fork);
+	pthread_mutex_unlock(philo->r_fork);
 	return (1);
 }
 
 void	sleeping(t_philo *philo)
 {
-	philo->is_eating = 0;
 	print(philo, YELLOW "💤 is sleeping 💤" RESET);
 	ft_usleep(philo->info->sleep_time);
 }
