@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:24:39 by amousaid          #+#    #+#             */
-/*   Updated: 2024/05/10 18:09:03 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/11 22:45:57 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	is_error(void)
 	return (0);
 }
 
-void destroy_kolchi(pthread_mutex_t *forks, t_philo *philos)
+void	destroy_kolchi(pthread_mutex_t *forks, t_philo *philos)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	pthread_mutex_destroy(&philos[i].mutex->print_mutex);

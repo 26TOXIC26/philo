@@ -24,7 +24,7 @@ void	ft_initialize(int argc, char **argv, t_info *info)
 		info->must_eat = -1;
 }
 
-void init_mutex(t_mutex *mutex)
+void	init_mutex(t_mutex *mutex)
 {
 	pthread_mutex_init(&mutex->dead_mutex, NULL);
 	pthread_mutex_init(&mutex->print_mutex, NULL);
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	t_mutex			mutex;
 	t_philo			threads[300];
 	pthread_mutex_t	forks[300];
-	
+
 	if (argc == 5 || argc == 6)
 	{
 		if (check_arg(argc, argv) == 0)

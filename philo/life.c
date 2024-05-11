@@ -52,7 +52,7 @@ int	dead_philo(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->mutex->dead_mutex);
 	if (philo->dead > 0 || philo->eat_count == philo->info->must_eat)
-		return (pthread_mutex_unlock(&philo->mutex->dead_mutex) ,0);
+		return (pthread_mutex_unlock(&philo->mutex->dead_mutex), 0);
 	pthread_mutex_unlock(&philo->mutex->dead_mutex);
 	return (1);
 }

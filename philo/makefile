@@ -6,17 +6,18 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 23:47:23 by pc                #+#    #+#              #
-#    Updated: 2024/05/10 18:13:15 by amousaid         ###   ########.fr        #
+#    Updated: 2024/05/11 22:59:59 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=thread
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=thread
 RM =rm -rf
 SRC = philo.c\
 		life.c\
 		born.c\
+		m_thread.c\
 		./utils/ft_isdigit.c\
 		./utils/checker.c\
 		./utils/error.c\

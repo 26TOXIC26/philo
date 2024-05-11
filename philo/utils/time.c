@@ -23,7 +23,7 @@ size_t	get_time(void)
 int	ft_usleep(size_t milliseconds)
 {
 	size_t	start;
-	
+
 	start = get_time();
 	while ((get_time() - start) < milliseconds)
 		usleep(100);

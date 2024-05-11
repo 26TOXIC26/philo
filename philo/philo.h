@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 00:04:36 by pc                #+#    #+#             */
-/*   Updated: 2024/05/10 18:08:37 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/11 22:58:29 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_mutex
 {
 	pthread_mutex_t	dead_mutex;
 	pthread_mutex_t	print_mutex;
-	pthread_mutex_t eat_mutex;
+	pthread_mutex_t	eat_mutex;
 }					t_mutex;
 typedef struct s_info
 {
@@ -68,7 +68,8 @@ void				init_forks(t_info info, pthread_mutex_t *forks);
 void				print(t_philo *philo, char *str);
 int					ft_usleep(size_t milliseconds);
 int					done_eating(t_philo *philo);
-void destroy_kolchi(pthread_mutex_t *forks, t_philo *philos);
+void				destroy_kolchi(pthread_mutex_t *forks, t_philo *philos);
+void				*main_check(void *threds);
 
 // colors
 # define RESET "\e[0m"
