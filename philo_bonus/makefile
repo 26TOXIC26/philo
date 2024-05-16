@@ -6,24 +6,16 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 23:47:23 by pc                #+#    #+#              #
-#    Updated: 2024/05/13 15:05:43 by amousaid         ###   ########.fr        #
+#    Updated: 2024/05/15 15:57:55 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philo
+NAME = philo_bonus
 CC = cc
 CFLAGS = -Wall -Werror -Wextra #-fsanitize=thread
 RM =rm -rf
-SRC = philo.c\
-		life.c\
-		born.c\
-		m_thread.c\
-		./utils/ft_isdigit.c\
-		./utils/checker.c\
-		./utils/error.c\
-		./utils/ft_atoi.c\
-		./utils/print.c\
-		./utils/time.c\
+SRC = philo_bonus.c\
+		
 
 OBJ = $(SRC:.c=.o)
 
