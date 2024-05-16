@@ -25,13 +25,13 @@ int	eating(t_philo *philo)
 	pthread_mutex_lock(philo->r_fork);
 	print(philo, BLUE "🍴 has taken a fork 🍴" RESET);
 	print(philo, GREEN "🍝 is eating 🍝" RESET);
-	philo->is_eating = 1;
 	pthread_mutex_lock(&philo->mutex->eat_mutex);
+	philo->is_eating = 1;
 	philo->last_eat = get_time();
 	philo->eat_count++;
+	philo->is_eating = 0;
 	pthread_mutex_unlock(&philo->mutex->eat_mutex);
 	ft_usleep(philo->info->eat_time);
-	philo->is_eating = 0;
 	pthread_mutex_unlock(philo->l_fork);
 	pthread_mutex_unlock(philo->r_fork);
 	return (1);
