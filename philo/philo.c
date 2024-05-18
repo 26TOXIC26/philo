@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abdelilah <abdelilah@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 23:46:52 by pc                #+#    #+#             */
-/*   Updated: 2024/05/13 12:38:11 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/18 18:11:42 by abdelilah        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_initialize(int argc, char **argv, t_info *info)
+int	ft_initialize(int argc, char **argv, t_info *info)
 {
 	info->philo_num = ft_atoi(argv[1]);
+	if (info->philo_num > 300)
+		return (-1);
 	info->death_time = ft_atoi(argv[2]);
 	info->eat_time = ft_atoi(argv[3]);
 	info->sleep_time = ft_atoi(argv[4]);
@@ -22,6 +24,7 @@ void	ft_initialize(int argc, char **argv, t_info *info)
 		info->must_eat = ft_atoi(argv[5]);
 	else
 		info->must_eat = -1;
+	return (0);
 }
 
 void	init_mutex(t_mutex *mutex)
@@ -42,7 +45,8 @@ int	main(int argc, char **argv)
 	{
 		if (check_arg(argc, argv) == 0)
 			return (is_error());
-		ft_initialize(argc, argv, &info);
+		if (ft_initialize(argc, argv, &info) == -1)
+			return (is_error());
 		init_forks(info, forks);
 		init_mutex(&mutex);
 		philo_data(&info, threads, forks, &mutex);

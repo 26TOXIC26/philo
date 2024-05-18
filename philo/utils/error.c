@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abdelilah <abdelilah@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:24:39 by amousaid          #+#    #+#             */
-/*   Updated: 2024/05/11 22:45:57 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/05/18 18:13:45 by abdelilah        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	is_error(void)
 {
-	printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-	printf("┃          Please enter 4 or 5 arguments       ┃\n");
-	printf("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫\n");
-	printf("┃  [1]Number of philosophers                   ┃\n");
-	printf("┃  [2]Time to die                              ┃\n");
-	printf("┃  [3]Time to eat                              ┃\n");
-	printf("┃  [4]Time to sleep                            ┃\n");
-	printf("┃  [5]Number of meals                          ┃\n");
-	printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-	return (0);
+	write(2, "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n", 146);
+	write(2, "┃   Please enter 4 or 5 arguments (positive)   ┃\n", 54);
+	write(2, "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫\n", 146);
+	write(2, "┃  [1]Number of philosophers   (less than 300) ┃\n", 54);
+	write(2, "┃  [2]Time to die                              ┃\n", 54);
+	write(2, "┃  [3]Time to eat                              ┃\n", 54);
+	write(2, "┃  [4]Time to sleep                            ┃\n", 54);
+	write(2, "┃  [5]Number of meals                          ┃\n", 54);
+	write(2, "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n", 146);
+	return (-1);
 }
 
 void	destroy_kolchi(pthread_mutex_t *forks, t_philo *philos)
